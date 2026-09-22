@@ -1,0 +1,198 @@
+﻿@{
+    ViewData["Title"] = "Trang chủ";
+}
+
+<div class="home-page">
+
+    <!-- ==================== BANNER ==================== -->
+    <section class="hero-section">
+        <div class="hero-content">
+
+            <div class="hero-text">
+
+                <h1>🩸 HIẾN MÁU TÌNH NGUYỆN</h1>
+
+                <h2>
+                    Một giọt máu cho đi<br />
+                    Một cuộc đời ở lại
+                </h2>
+
+                <p>
+                    Hệ thống quản lý hiến máu tình nguyện
+                    có tích hợp trí tuệ nhân tạo AI.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a asp-controller="Campaign"
+                       asp-action="Index"
+                       class="btn-main">
+                        🩸 Xem chiến dịch
+                    </a>
+
+                    <a asp-controller="DonationRegistration"
+                       asp-action="Register"
+                       class="btn-main">
+                        📝 Đăng ký hiến máu
+                    </a>
+
+                    <a asp-controller="AI"
+                       asp-action="Index"
+                       class="btn-ai">
+                        🤖 Hỏi Chatbot AI
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="hero-icon">
+                🩸
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ==================== CHỨC NĂNG ==================== -->
+    <section class="features-section">
+
+        <h2>Chức năng hệ thống</h2>
+
+        <p class="section-description">
+            Hỗ trợ quản lý toàn bộ quá trình hiến máu tình nguyện
+        </p>
+
+        <div class="features">
+
+
+            <!-- ĐĂNG KÝ HIẾN MÁU -->
+            <a asp-controller="DonationRegistration"
+               asp-action="Register"
+               class="feature-link">
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        📝
+                    </div>
+
+                    <h3>Đăng ký hiến máu</h3>
+
+                    <p>
+                        Đăng ký lịch hiến máu trực tuyến
+                        nhanh chóng và thuận tiện.
+                    </p>
+
+                    <span class="feature-button">
+                        Đăng ký ngay →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- QUẢN LÝ CHIẾN DỊCH -->
+            <a asp-controller="Campaign"
+               asp-action="Index"
+               class="feature-link">
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        📅
+                    </div>
+
+                    <h3>Quản lý chiến dịch</h3>
+
+                    <p>
+                        Theo dõi chiến dịch,
+                        thời gian và địa điểm hiến máu.
+                    </p>
+
+                    <span class="feature-button">
+                        Xem chiến dịch →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- AI -->
+            <a asp-controller="AI"
+               asp-action="Index"
+               class="feature-link">
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        🤖
+                    </div>
+
+                    <h3>Trợ lý AI</h3>
+
+                    <p>
+                        Chatbot AI hỗ trợ giải đáp
+                        các câu hỏi về hiến máu.
+                    </p>
+
+                    <span class="feature-button">
+                        Hỏi AI →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- THỐNG KÊ -->
+            <a asp-controller="DonationRegistration"
+               asp-action="Index"
+               class="feature-link">
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        📊
+                    </div>
+
+                    <h3>Thống kê</h3>
+
+                    <p>
+                        Theo dõi số lượng đăng ký
+                        và kết quả các chiến dịch.
+                    </p>
+
+                    <span class="feature-button">
+                        Xem thống kê →
+                    </span>
+
+                </div>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================== GIỚI THIỆU ==================== -->
+    <section class="about-section">
+
+        <h2>❤️ Cùng chung tay cứu người</h2>
+
+        <p>
+            Hiến máu tình nguyện là một hành động nhân văn,
+            góp phần cung cấp nguồn máu cho người bệnh cần truyền máu.
+        </p>
+
+        <p>
+            Hệ thống giúp kết nối tình nguyện viên,
+            điều phối viên và đơn vị tổ chức hiến máu.
+        </p>
+
+    </section>
+
+</div>

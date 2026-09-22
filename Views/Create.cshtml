@@ -1,0 +1,93 @@
+@model HeThongHienMauTichHopAI.Models.Campaign
+
+@{
+    ViewData["Title"] = "Tạo chiến dịch";
+}
+
+<div class="container mt-4">
+
+    <div class="card shadow">
+
+        <div class="card-header bg-danger text-white">
+            <h3 class="mb-0">
+                🩸 Tạo chiến dịch hiến máu
+            </h3>
+        </div>
+
+        <div class="card-body">
+
+            <form asp-action="Create" method="post">
+
+                <div class="mb-3">
+                    <label class="form-label">
+                        Tên chiến dịch
+                    </label>
+
+                    <input asp-for="Name"
+                           class="form-control"
+                           placeholder="Ví dụ: Hiến máu nhân đạo tháng 9" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">
+                        Địa điểm
+                    </label>
+
+                    <input asp-for="Location"
+                           class="form-control"
+                           placeholder="Ví dụ: Nhà văn hóa thành phố" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">
+                        Ngày tổ chức
+                    </label>
+
+                    <input asp-for="Date"
+                           type="date"
+                           class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">
+                        Mô tả
+                    </label>
+
+                    <textarea asp-for="Description"
+                              class="form-control"
+                              rows="4"
+                              placeholder="Nhập thông tin chiến dịch..."></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">
+                        Số người tối đa
+                    </label>
+
+                    <input asp-for="MaxParticipants"
+                           type="number"
+                           class="form-control"
+                           min="1" />
+                </div>
+
+                <div class="d-flex gap-2">
+
+                    <button type="submit"
+                            class="btn btn-danger">
+                        💾 Lưu chiến dịch
+                    </button>
+
+                    <a asp-action="Index"
+                       class="btn btn-secondary">
+                        Quay lại
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>

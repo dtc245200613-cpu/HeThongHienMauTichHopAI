@@ -1,0 +1,266 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}
+/* =========================
+   TRANG CHỦ HIẾN MÁU
+   ========================= */
+
+.home-page {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Banner */
+
+.hero-section {
+    background: linear-gradient(
+        135deg,
+        #fff5f5,
+        #ffe3e3
+    );
+
+    padding: 70px 10%;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.hero-text {
+    max-width: 650px;
+}
+
+.hero-text h1 {
+    color: #dc3545;
+    font-size: 42px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero-text h2 {
+    color: #333;
+    font-size: 32px;
+    line-height: 1.4;
+}
+
+.hero-text p {
+    color: #666;
+    font-size: 18px;
+    margin: 20px 0;
+}
+
+.hero-icon {
+    font-size: 180px;
+    animation: heartbeat 1.5s infinite;
+}
+
+
+/* Nút */
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.btn-main,
+.btn-ai {
+    text-decoration: none;
+    padding: 14px 25px;
+    border-radius: 10px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.btn-main {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-main:hover {
+    background: #b02a37;
+    color: white;
+}
+
+.btn-ai {
+    background: #212529;
+    color: white;
+}
+
+.btn-ai:hover {
+    background: #000;
+    color: white;
+}
+
+
+/* Chức năng */
+
+.features-section {
+    padding: 60px 10%;
+    text-align: center;
+}
+
+.features-section h2 {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.section-description {
+    color: #777;
+    margin-bottom: 40px;
+}
+
+.features {
+    display: grid;
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 25px;
+
+    max-width: 1200px;
+    margin: auto;
+}
+
+.feature-card {
+    background: white;
+    padding: 30px 20px;
+    border-radius: 15px;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.08);
+
+    transition: 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+}
+
+.feature-icon {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    color: #dc3545;
+    margin-bottom: 15px;
+}
+
+.feature-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+
+/* Giới thiệu */
+
+.about-section {
+    background: #fff5f5;
+    padding: 60px 15%;
+    text-align: center;
+}
+
+.about-section h2 {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.about-section p {
+    color: #555;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+
+/* Hiệu ứng trái tim */
+
+@keyframes heartbeat {
+
+    0% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.08);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    75% {
+        transform: scale(1.08);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+
+/* Điện thoại */
+
+@media (max-width: 768px) {
+
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 30px;
+    }
+
+    .hero-text h2 {
+        font-size: 24px;
+    }
+
+    .hero-icon {
+        font-size: 100px;
+        margin-top: 30px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+}

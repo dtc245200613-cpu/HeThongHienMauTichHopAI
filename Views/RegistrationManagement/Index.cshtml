@@ -1,0 +1,361 @@
+@model IEnumerable<HeThongHienMauTichHopAI.Models.DonationRegistration>
+
+@{
+    ViewData["Title"] = "Quản lý đăng ký hiến máu";
+}
+
+<div class="container mt-5 mb-5">
+
+    <!-- TIÊU ĐỀ -->
+    <div class="text-center mb-5">
+
+        <div style="font-size:60px;">
+            📋
+        </div>
+
+        <h1 class="text-danger fw-bold">
+            QUẢN LÝ ĐĂNG KÝ HIẾN MÁU
+        </h1>
+
+        <p class="text-muted fs-5">
+            Danh sách tình nguyện viên đăng ký hiến máu
+        </p>
+
+    </div>
+
+
+    <!-- THỐNG KÊ NHANH -->
+    <div class="row mb-5">
+
+        <div class="col-md-4 mb-3">
+
+            <div class="card shadow-sm text-center h-100">
+
+                <div class="card-body p-4">
+
+                    <h5 class="fw-bold">
+                        Tổng đăng ký
+                    </h5>
+
+                    <h2 class="text-primary fw-bold">
+                        @Model.Count()
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-4 mb-3">
+
+            <div class="card shadow-sm text-center h-100">
+
+                <div class="card-body p-4">
+
+                    <h5 class="fw-bold">
+                        Chờ duyệt
+                    </h5>
+
+                    <h2 class="text-warning fw-bold">
+                        @Model.Count(x => x.Status == "Chờ duyệt")
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-4 mb-3">
+
+            <div class="card shadow-sm text-center h-100">
+
+                <div class="card-body p-4">
+
+                    <h5 class="fw-bold">
+                        Đã duyệt
+                    </h5>
+
+                    <h2 class="text-success fw-bold">
+                        @Model.Count(x => x.Status == "Đã duyệt")
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- DANH SÁCH -->
+    @if (Model != null && Model.Any())
+    {
+        <div class="card shadow border-0">
+
+            <!-- HEADER -->
+            <div class="card-header bg-danger text-white">
+
+                <div class="d-flex justify-content-between align-items-center">
+
+                    <h4 class="mb-0">
+                        📋 Danh sách người đăng ký
+                    </h4>
+
+                    <a asp-controller="DonationRegistration"
+                       asp-action="Register"
+                       class="btn btn-light">
+
+                        ➕ Đăng ký mới
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- TABLE -->
+            <div class="card-body">
+
+                <div class="table-responsive">
+
+                    <table class="table table-bordered table-hover align-middle">
+
+                        <thead class="table-danger">
+
+                            <tr>
+
+                                <th class="text-center">
+                                    STT
+                                </th>
+
+                                <th>
+                                    Họ tên
+                                </th>
+
+                                <th>
+                                    Nhóm máu
+                                </th>
+
+                                <th>
+                                    Chiến dịch
+                                </th>
+
+                                <th>
+                                    Ngày đăng ký
+                                </th>
+
+                                <th>
+                                    Trạng thái
+                                </th>
+
+                                <th>
+                                    Thao tác
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            @{
+                                int stt = 1;
+                            }
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+
+                                    <!-- STT -->
+                                    <td class="text-center fw-bold">
+                                        @stt
+                                    </td>
+
+
+                                    <!-- HỌ TÊN -->
+                                    <td>
+
+                                        <strong>
+                                            @item.VolunteerName
+                                        </strong>
+
+                                    </td>
+
+
+                                    <!-- NHÓM MÁU -->
+                                    <td>
+
+                                        <span class="badge bg-danger fs-6">
+                                            @item.BloodType
+                                        </span>
+
+                                    </td>
+
+
+                                    <!-- CHIẾN DỊCH -->
+                                    <td>
+
+                                        Mã chiến dịch:
+                                        <strong>
+                                            @item.CampaignId
+                                        </strong>
+
+                                    </td>
+
+
+                                    <!-- NGÀY ĐĂNG KÝ -->
+                                    <td>
+
+                                        @item.RegisteredAt.ToString("dd/MM/yyyy HH:mm")
+
+                                    </td>
+
+
+                                    <!-- TRẠNG THÁI -->
+                                    <td>
+
+                                        @if (item.Status == "Chờ duyệt")
+                                        {
+                                            <span class="badge bg-warning text-dark">
+
+                                                ⏳ Chờ duyệt
+
+                                            </span>
+                                        }
+                                        else if (item.Status == "Đã duyệt")
+                                        {
+                                            <span class="badge bg-success">
+
+                                                ✅ Đã duyệt
+
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-secondary">
+
+                                                ❌ Từ chối
+
+                                            </span>
+                                        }
+
+                                    </td>
+
+
+                                    <!-- THAO TÁC -->
+                                    <td>
+
+                                        @if (item.Status == "Chờ duyệt")
+                                        {
+                                            <div class="d-flex gap-2">
+
+                                                <!-- DUYỆT -->
+                                                <form asp-controller="RegistrationManagement"
+                                                      asp-action="Approve"
+                                                      method="post">
+
+                                                    @Html.AntiForgeryToken()
+
+                                                    <input type="hidden"
+                                                           name="id"
+                                                           value="@item.Id" />
+
+                                                    <button type="submit"
+                                                            class="btn btn-success btn-sm">
+
+                                                        ✓ Duyệt
+
+                                                    </button>
+
+                                                </form>
+
+
+                                                <!-- TỪ CHỐI -->
+                                                <form asp-controller="RegistrationManagement"
+                                                      asp-action="Reject"
+                                                      method="post">
+
+                                                    @Html.AntiForgeryToken()
+
+                                                    <input type="hidden"
+                                                           name="id"
+                                                           value="@item.Id" />
+
+                                                    <button type="submit"
+                                                            class="btn btn-warning btn-sm">
+
+                                                        ✕ Từ chối
+
+                                                    </button>
+
+                                                </form>
+
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <span class="text-muted">
+
+                                                Đã xử lý
+
+                                            </span>
+                                        }
+
+                                    </td>
+
+                                </tr>
+
+                                stt++;
+                            }
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+    }
+    else
+    {
+        <!-- KHÔNG CÓ ĐĂNG KÝ -->
+
+        <div class="card shadow border-0 text-center p-5">
+
+            <div style="font-size:60px;">
+                📋
+            </div>
+
+            <h3 class="mt-3">
+                Chưa có đăng ký
+            </h3>
+
+            <p class="text-muted">
+                Hiện tại chưa có tình nguyện viên đăng ký hiến máu.
+            </p>
+
+            <div class="mt-3">
+
+                <a asp-controller="DonationRegistration"
+                   asp-action="Register"
+                   class="btn btn-danger btn-lg">
+
+                    📝 Đăng ký hiến máu
+
+                </a>
+
+            </div>
+
+        </div>
+    }
+
+</div>

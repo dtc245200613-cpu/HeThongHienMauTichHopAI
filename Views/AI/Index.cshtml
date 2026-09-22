@@ -1,0 +1,86 @@
+@{
+    ViewData["Title"] = "Chatbot AI";
+}
+
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-9">
+
+            <div class="card shadow">
+
+                <div class="card-header bg-danger text-white">
+
+                    <h4 class="mb-0">
+                        🤖 Chatbot AI Hiến Máu
+                    </h4>
+
+                </div>
+
+                <div class="card-body">
+
+                    <p class="text-muted">
+                        Hãy đặt câu hỏi về hiến máu,
+                        quy trình đăng ký hoặc chiến dịch.
+                    </p>
+
+                    <form method="post"
+                          asp-controller="AI"
+                          asp-action="Ask">
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Câu hỏi
+                            </label>
+
+                            <textarea
+                                name="question"
+                                class="form-control"
+                                rows="4"
+                                placeholder="Ví dụ: Quy trình đăng ký hiến máu như thế nào?"
+                                required>@ViewBag.Question</textarea>
+
+                        </div>
+
+                        <button
+                            type="submit"
+                            class="btn btn-danger">
+
+                            🤖 Hỏi AI
+
+                        </button>
+
+                    </form>
+
+                    @if (ViewBag.Answer != null)
+                    {
+                        <div class="mt-4">
+
+                            <div class="alert alert-light border">
+
+                                <h5>
+                                    🤖 AI trả lời:
+                                </h5>
+
+                                <hr />
+
+                                <div style="white-space: pre-line;">
+                                    @ViewBag.Answer
+                                </div>
+
+                            </div>
+
+                        </div>
+                    }
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

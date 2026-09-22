@@ -1,0 +1,100 @@
+HƯỚNG DẪN HIẾN MÁU TÌNH NGUYỆN
+
+1. ĐĂNG KÝ HIẾN MÁU
+
+Người tình nguyện có thể đăng ký tham gia hiến máu
+thông qua hệ thống quản lý hiến máu tình nguyện.
+
+Người dùng chọn chiến dịch hiến máu phù hợp,
+nhập họ tên, chọn nhóm máu và xác nhận đăng ký.
+
+Sau khi đăng ký, trạng thái mặc định là "Chờ duyệt".
+
+Điều phối viên có thể kiểm tra và xử lý đăng ký.
+
+2. QUY TRÌNH ĐĂNG KÝ
+
+Bước 1:
+Truy cập trang Chiến dịch.
+
+Bước 2:
+Chọn chiến dịch hiến máu muốn tham gia.
+
+Bước 3:
+Nhấn nút "Đăng ký hiến máu".
+
+Bước 4:
+Nhập họ và tên.
+
+Bước 5:
+Chọn nhóm máu.
+
+Bước 6:
+Chọn chiến dịch.
+
+Bước 7:
+Nhấn "Xác nhận đăng ký".
+
+Sau khi đăng ký thành công, hệ thống hiển thị
+trạng thái "Chờ duyệt".
+
+3. CHUẨN BỊ TRƯỚC KHI HIẾN MÁU
+
+Người tham gia nên nghỉ ngơi đầy đủ trước khi tham gia.
+
+Nên ăn uống phù hợp và uống đủ nước.
+
+Người tham gia cần thực hiện theo hướng dẫn
+của nhân viên y tế tại điểm hiến máu.
+
+4. TẠI ĐIỂM HIẾN MÁU
+
+Người tham gia thực hiện các bước theo hướng dẫn
+của nhân viên y tế.
+
+Thông tin sức khỏe cần được cung cấp trung thực
+cho nhân viên y tế khi được yêu cầu.
+
+Việc có đủ điều kiện hiến máu hay không cần được
+nhân viên y tế đánh giá tại điểm hiến máu.
+
+5. SAU KHI HIẾN MÁU
+
+Sau khi hiến máu, người tham gia cần nghỉ ngơi
+và thực hiện theo hướng dẫn của nhân viên y tế.
+
+Nếu cảm thấy không khỏe, cần thông báo cho
+nhân viên y tế.
+
+6. CHIẾN DỊCH HIẾN MÁU
+
+Mỗi chiến dịch có tên, địa điểm, ngày tổ chức,
+mô tả và số lượng người tham gia tối đa.
+
+Người dùng có thể xem danh sách các chiến dịch
+trên hệ thống.
+
+7. TRẠNG THÁI ĐĂNG KÝ
+
+"Chờ duyệt":
+Đăng ký đã được gửi và đang chờ điều phối viên xử lý.
+
+"Đã duyệt":
+Đăng ký đã được điều phối viên chấp nhận.
+
+"Từ chối":
+Đăng ký không được chấp nhận.
+
+8. CHATBOT AI
+
+Chatbot AI hỗ trợ trả lời các câu hỏi liên quan
+đến hệ thống hiến máu và các tài liệu được cung cấp.
+
+Chatbot có thể hỗ trợ các câu hỏi về đăng ký,
+chiến dịch và quy trình tham gia.
+
+Chatbot không thay thế nhân viên y tế.
+
+Đối với các vấn đề liên quan đến điều kiện sức khỏe
+hoặc khả năng hiến máu, người tham gia cần làm theo
+đánh giá và hướng dẫn của nhân viên y tế.

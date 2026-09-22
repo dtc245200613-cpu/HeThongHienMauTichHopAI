@@ -1,0 +1,200 @@
+@model HeThongHienMauTichHopAI.Models.Campaign
+
+@{
+    ViewData["Title"] = "Tạo chiến dịch";
+}
+
+<div class="container mt-5 mb-5">
+
+    <!-- TIÊU ĐỀ -->
+    <div class="text-center mb-5">
+
+        <div style="font-size:60px;">
+            🩸
+        </div>
+
+        <h1 class="text-danger fw-bold">
+            TẠO CHIẾN DỊCH HIẾN MÁU
+        </h1>
+
+        <p class="text-muted fs-5">
+            Tạo một chiến dịch hiến máu tình nguyện mới
+        </p>
+
+    </div>
+
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <div class="card shadow border-0">
+
+                <!-- HEADER -->
+                <div class="card-header bg-danger text-white">
+
+                    <h4 class="mb-0">
+                        📅 Thông tin chiến dịch
+                    </h4>
+
+                </div>
+
+
+                <!-- FORM -->
+                <div class="card-body p-4">
+
+                    <form asp-controller="Campaign"
+                          asp-action="Create"
+                          method="post">
+
+                        @Html.AntiForgeryToken()
+
+
+                        <!-- TÊN -->
+                        <div class="mb-4">
+
+                            <label asp-for="Name"
+                                   class="form-label fw-bold">
+
+                                Tên chiến dịch
+
+                            </label>
+
+                            <input asp-for="Name"
+                                   class="form-control form-control-lg"
+                                   placeholder="Ví dụ: Ngày hội hiến máu nhân đạo" />
+
+                            <span asp-validation-for="Name"
+                                  class="text-danger">
+                            </span>
+
+                        </div>
+
+
+                        <!-- ĐỊA ĐIỂM -->
+                        <div class="mb-4">
+
+                            <label asp-for="Location"
+                                   class="form-label fw-bold">
+
+                                📍 Địa điểm
+
+                            </label>
+
+                            <input asp-for="Location"
+                                   class="form-control form-control-lg"
+                                   placeholder="Ví dụ: Nhà văn hóa thành phố" />
+
+                            <span asp-validation-for="Location"
+                                  class="text-danger">
+                            </span>
+
+                        </div>
+
+
+                        <!-- NGÀY -->
+                        <div class="mb-4">
+
+                            <label asp-for="Date"
+                                   class="form-label fw-bold">
+
+                                📅 Ngày tổ chức
+
+                            </label>
+
+                            <input asp-for="Date"
+                                   type="date"
+                                   class="form-control form-control-lg" />
+
+                            <span asp-validation-for="Date"
+                                  class="text-danger">
+                            </span>
+
+                        </div>
+
+
+                        <!-- SỐ LƯỢNG -->
+                        <div class="mb-4">
+
+                            <label asp-for="MaxParticipants"
+                                   class="form-label fw-bold">
+
+                                👥 Số người tối đa
+
+                            </label>
+
+                            <input asp-for="MaxParticipants"
+                                   type="number"
+                                   min="1"
+                                   class="form-control form-control-lg"
+                                   placeholder="Ví dụ: 100" />
+
+                            <span asp-validation-for="MaxParticipants"
+                                  class="text-danger">
+                            </span>
+
+                        </div>
+
+
+                        <!-- MÔ TẢ -->
+                        <div class="mb-4">
+
+                            <label asp-for="Description"
+                                   class="form-label fw-bold">
+
+                                📝 Mô tả chiến dịch
+
+                            </label>
+
+                            <textarea asp-for="Description"
+                                      class="form-control"
+                                      rows="5"
+                                      placeholder="Nhập thông tin mô tả chiến dịch...">
+                            </textarea>
+
+                            <span asp-validation-for="Description"
+                                  class="text-danger">
+                            </span>
+
+                        </div>
+
+
+                        <!-- BUTTON -->
+                        <div class="d-flex gap-2">
+
+                            <button type="submit"
+                                    class="btn btn-danger btn-lg flex-grow-1">
+
+                                🩸 Lưu chiến dịch
+
+                            </button>
+
+
+                            <a asp-controller="Campaign"
+                               asp-action="Index"
+                               class="btn btn-secondary btn-lg">
+
+                                Quay lại
+
+                            </a>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+@section Scripts {
+
+    <partial name="_ValidationScriptsPartial" />
+
+}

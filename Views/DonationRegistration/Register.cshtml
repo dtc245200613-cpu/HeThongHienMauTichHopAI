@@ -1,0 +1,194 @@
+@model HeThongHienMauTichHopAI.Models.DonationRegistration
+
+@{
+    ViewData["Title"] = "Đăng ký hiến máu";
+
+    var campaigns =
+        ViewBag.Campaigns
+        as List<HeThongHienMauTichHopAI.Models.Campaign>;
+}
+
+<div class="container mt-5 mb-5">
+
+    <div class="text-center mb-5">
+
+        <div style="font-size:60px;">
+            🩸
+        </div>
+
+        <h1 class="text-danger fw-bold">
+            ĐĂNG KÝ HIẾN MÁU
+        </h1>
+
+        <p class="text-muted">
+            Đăng ký tham gia chiến dịch hiến máu tình nguyện
+        </p>
+
+    </div>
+
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <div class="card shadow border-0">
+
+                <div class="card-header bg-danger text-white">
+
+                    <h4 class="mb-0">
+                        📝 Thông tin đăng ký
+                    </h4>
+
+                </div>
+
+
+                <div class="card-body p-4">
+
+                    <form asp-controller="DonationRegistration"
+                          asp-action="Register"
+                          method="post">
+
+                        @Html.AntiForgeryToken()
+
+
+                        <!-- HỌ TÊN -->
+
+                        <div class="mb-4">
+
+                            <label asp-for="VolunteerName"
+                                   class="form-label fw-bold">
+
+                                👤 Họ và tên
+
+                            </label>
+
+                            <input asp-for="VolunteerName"
+                                   class="form-control form-control-lg"
+                                   placeholder="Nhập họ và tên" />
+
+                            <span asp-validation-for="VolunteerName"
+                                  class="text-danger">
+                            </span>
+
+                        </div>
+
+
+                        <!-- NHÓM MÁU -->
+
+                        <div class="mb-4">
+
+                            <label asp-for="BloodType"
+                                   class="form-label fw-bold">
+
+                                🩸 Nhóm máu
+
+                            </label>
+
+                            <select asp-for="BloodType"
+                                    class="form-select form-select-lg">
+
+                                <option value="">
+                                    -- Chọn nhóm máu --
+                                </option>
+
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+
+                            </select>
+
+                            <span asp-validation-for="BloodType"
+                                  class="text-danger">
+                            </span>
+
+                        </div>
+
+
+                        <!-- CHIẾN DỊCH -->
+
+                        <div class="mb-4">
+
+                            <label asp-for="CampaignId"
+                                   class="form-label fw-bold">
+
+                                📅 Chiến dịch
+
+                            </label>
+
+                            <select asp-for="CampaignId"
+                                    class="form-select form-select-lg">
+
+                                <option value="">
+                                    -- Chọn chiến dịch --
+                                </option>
+
+                                @if (campaigns != null)
+                                {
+                                    foreach (var campaign in campaigns)
+                                    {
+                                        <option value="@campaign.Id">
+
+                                            @campaign.Name
+                                            -
+                                            @campaign.Date.ToString("dd/MM/yyyy")
+
+                                        </option>
+                                    }
+                                }
+
+                            </select>
+
+                            <span asp-validation-for="CampaignId"
+                                  class="text-danger">
+                            </span>
+
+                        </div>
+
+
+                        <!-- NÚT -->
+
+                        <div class="d-flex gap-2">
+
+                            <button type="submit"
+                                    class="btn btn-danger btn-lg flex-grow-1">
+
+                                🩸 Xác nhận đăng ký
+
+                            </button>
+
+
+                            <a asp-controller="Campaign"
+                               asp-action="Index"
+                               class="btn btn-secondary btn-lg">
+
+                                Quay lại
+
+                            </a>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts {
+
+    <partial name="_ValidationScriptsPartial" />
+
+}

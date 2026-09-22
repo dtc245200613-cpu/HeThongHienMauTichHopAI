@@ -1,0 +1,105 @@
+@{
+    ViewData["Title"] = "Đăng nhập";
+}
+
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-5">
+
+            <div class="card shadow-lg border-0">
+
+                <div class="card-header bg-danger text-white text-center p-4">
+
+                    <div style="font-size:50px;">
+                        🩸
+                    </div>
+
+                    <h2>ĐĂNG NHẬP</h2>
+
+                    <p class="mb-0">
+                        Hệ thống quản lý hiến máu
+                    </p>
+
+                </div>
+
+                <div class="card-body p-4">
+
+                    @if (ViewBag.Error != null)
+                    {
+                        <div class="alert alert-danger">
+                            @ViewBag.Error
+                        </div>
+                    }
+
+                    <form asp-action="Login" method="post">
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Email
+                            </label>
+
+                            <input
+                                type="email"
+                                name="email"
+                                class="form-control"
+                                placeholder="Nhập email"
+                                required />
+
+                        </div>
+
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Mật khẩu
+                            </label>
+
+                            <input
+                                type="password"
+                                name="password"
+                                class="form-control"
+                                placeholder="Nhập mật khẩu"
+                                required />
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="btn btn-danger w-100">
+
+                            🔐 Đăng nhập
+
+                        </button>
+
+                    </form>
+
+
+                    <div class="text-center mt-4">
+
+                        <span>
+                            Chưa có tài khoản?
+                        </span>
+
+                        <a
+                            asp-controller="Account"
+                            asp-action="Register">
+
+                            Đăng ký ngay
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
