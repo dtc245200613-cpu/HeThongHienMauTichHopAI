@@ -6,7 +6,9 @@
 
 <div class="container mt-5 mb-5">
 
-    <!-- TIÊU ĐỀ -->
+    <!-- =========================
+         TIÊU ĐỀ
+    ========================== -->
     <div class="text-center mb-5">
 
         <div style="font-size:60px;">
@@ -24,9 +26,12 @@
     </div>
 
 
-    <!-- THỐNG KÊ NHANH -->
+    <!-- =========================
+         THỐNG KÊ NHANH
+    ========================== -->
     <div class="row mb-5">
 
+        <!-- TỔNG ĐĂNG KÝ -->
         <div class="col-md-4 mb-3">
 
             <div class="card shadow-sm text-center h-100">
@@ -48,6 +53,7 @@
         </div>
 
 
+        <!-- CHỜ DUYỆT -->
         <div class="col-md-4 mb-3">
 
             <div class="card shadow-sm text-center h-100">
@@ -69,6 +75,7 @@
         </div>
 
 
+        <!-- ĐÃ DUYỆT -->
         <div class="col-md-4 mb-3">
 
             <div class="card shadow-sm text-center h-100">
@@ -92,7 +99,10 @@
     </div>
 
 
-    <!-- DANH SÁCH -->
+    <!-- =========================
+         DANH SÁCH ĐĂNG KÝ
+    ========================== -->
+
     @if (Model != null && Model.Any())
     {
         <div class="card shadow border-0">
@@ -119,13 +129,16 @@
             </div>
 
 
-            <!-- TABLE -->
+            <!-- BODY -->
             <div class="card-body">
 
                 <div class="table-responsive">
 
                     <table class="table table-bordered table-hover align-middle">
 
+                        <!-- =========================
+                             HEADER BẢNG
+                        ========================== -->
                         <thead class="table-danger">
 
                             <tr>
@@ -163,6 +176,9 @@
                         </thead>
 
 
+                        <!-- =========================
+                             BODY BẢNG
+                        ========================== -->
                         <tbody>
 
                             @{
@@ -203,6 +219,7 @@
                                     <td>
 
                                         Mã chiến dịch:
+
                                         <strong>
                                             @item.CampaignId
                                         </strong>
@@ -249,14 +266,18 @@
                                     </td>
 
 
-                                    <!-- THAO TÁC -->
+                                    <!-- =========================
+                                         THAO TÁC
+                                    ========================== -->
                                     <td>
 
                                         @if (item.Status == "Chờ duyệt")
                                         {
                                             <div class="d-flex gap-2">
 
-                                                <!-- DUYỆT -->
+                                                <!-- =====================
+                                                     NÚT DUYỆT
+                                                ====================== -->
                                                 <form asp-controller="RegistrationManagement"
                                                       asp-action="Approve"
                                                       method="post">
@@ -277,7 +298,9 @@
                                                 </form>
 
 
-                                                <!-- TỪ CHỐI -->
+                                                <!-- =====================
+                                                     NÚT TỪ CHỐI
+                                                ====================== -->
                                                 <form asp-controller="RegistrationManagement"
                                                       asp-action="Reject"
                                                       method="post">
@@ -327,7 +350,9 @@
     }
     else
     {
-        <!-- KHÔNG CÓ ĐĂNG KÝ -->
+        <!-- =========================
+             KHÔNG CÓ ĐĂNG KÝ
+        ========================== -->
 
         <div class="card shadow border-0 text-center p-5">
 

@@ -94,6 +94,22 @@ print("✅ Embedding model đã sẵn sàng.")
 print()
 print("💾 Đang tạo ChromaDB...")
 
+# Xóa dữ liệu cũ trước khi nạp mới.
+# Chroma.from_documents chỉ thêm vào (append), không ghi đè,
+# nên chạy lại ingest.py nhiều lần sẽ bị trùng dữ liệu.
+if CHROMA_DIR.exists():
+
+    print("🗑️  Đang xóa ChromaDB cũ...")
+
+    existing = Chroma(
+        persist_directory=str(CHROMA_DIR),
+        embedding_function=embeddings
+    )
+
+    existing.delete_collection()
+
+    print("✅ Đã xóa dữ liệu cũ.")
+
 vectorstore = Chroma.from_documents(
     documents=chunks,
     embedding=embeddings,

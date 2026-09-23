@@ -1,3 +1,12 @@
+import sys
+
+# Windows console mac dinh la cp1252 -> print tieng Viet se loi.
+# Ep stdout/stderr sang UTF-8 truoc khi import rag_core.
+if sys.stdout is not None:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+if sys.stderr is not None:
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
 from fastapi import FastAPI
 from pydantic import BaseModel
 import uvicorn

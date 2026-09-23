@@ -1,7 +1,13 @@
 import os
+import sys
+# Windows console mặc định là cp1252 -> print tiếng Việt sẽ lỗi.
+# Ép stdout/stderr sang UTF-8 trước khi in.
+if sys.stdout is not None:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+if sys.stderr is not None:
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 
 from dotenv import load_dotenv
-
 from google import genai
 
 

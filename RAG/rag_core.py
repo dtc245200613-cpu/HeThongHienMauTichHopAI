@@ -36,12 +36,12 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 GEMINI_MODEL = os.getenv(
     "GEMINI_MODEL",
-    "gemini-3.8-flash"
+    "gemini-3.5-flash-lite"
 )
 
 GEMINI_FALLBACK_MODEL = os.getenv(
     "GEMINI_FALLBACK_MODEL",
-    "gemini-2.5-flash-lite"
+    "gemini-3.5-flash"
 )
 
 
@@ -272,6 +272,17 @@ TRẢ LỜI
 # KIỂM TRA LỖI TẠM THỜI
 # ============================================================
 
+def is_quota_error(error):
+    # Lỗi hết quota (theo ngày) - thử lại ngay là vô ích.
+
+    error_text = str(error).upper()
+
+    return (
+        "RESOURCE_EXHAUSTED" in error_text
+        or "QUOTA" in error_text
+    )
+
+
 def is_temporary_gemini_error(error):
 
     error_text = str(error).upper()
@@ -381,6 +392,16 @@ def call_gemini(
                     str(e)
                 )
 
+                # Lỗi hết quota: thử lại ngay vô ích,
+                # chuyển thẳng sang model dự phòng.
+                if is_quota_error(e):
+
+                    print(
+                        "Lỗi hết quota (RESOURCE_EXHAUSTED). "
+                        "Chuyển sang model dự phòng..."
+                    )
+
+                    break
                 # Nếu lỗi tạm thời
                 if is_temporary_gemini_error(e):
 
@@ -423,6 +444,15 @@ def call_gemini(
                     )
 
                     break
+
+    if is_quota_error(last_error):
+
+        raise Exception(
+            "Đã hết quota Gemini API (giới hạn theo ngày).\n"
+            "Hãy chờ quota được làm mới, dùng API key khác, "
+            "hoặc nâng cấp gói.\n"
+            f"Chi tiết: {last_error}"
+        )
 
     raise Exception(
         "Không thể kết nối Gemini.\n"
